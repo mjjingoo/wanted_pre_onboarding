@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# wanted_pre_onboarding 선발과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 1. Toggle Component
 
-## Available Scripts
+#### [구현방법과 이유]
 
-In the project directory, you can run:
+클릭할 때마다 활성화 여부를 판단하여 값을 전달하고 보여줘야하기 때문에 input type 중 checkbox를 사용하였습니다.
 
-### `npm start`
+`useState`함수를 사용하였고, 스위치를 클릭하면 `onToggle`함수를 실행하여 상태값을 true로 바꿔주면서 스위치의 배경색이 오른쪽으로 차면서 색이 변하고, 스위치 아래의 텍스트도 'ON'으로 바뀌는 것을 볼 수 있습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### [어려웠던 점과 해결 방법]
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+스위치를 클릭했을 때 배경색이 좌우로 채워지는 부분을 구현해내기가 어려웠습니다. 배경색이 다른 가상선택자 두 개를 생성하여 margin-left와 transition을 사용해서 해결하였습니다.
 
-### `npm test`
+#### [실행 방법]
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+스위치를 클릭하면 버튼과 배경색이 오른쪽으로 이동하면서 스위치의 ON/OFF가 보여집니다.
 
-### `npm run build`
+### 2. Tab Component
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### [구현방법과 이유]
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ul, li를 사용하여 탭도 하나의 리스트처럼 구현하였고, tab의 이름과 내용이 들어있는 `tabitems`배열을 생성하였습니다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+map함수를 이용하여 배열의 개수만큼 상단 탭을 생성하였고, 탭을 클릭하면 `selectTab`함수가 실행되어 해당 탭에 대한 index를 `activeTab`에 저장합니다.
 
-### `npm run eject`
+클릭된 탭은 삼항 연산자를 이용하여 active라는 클래스가 추가되고, 이 클래스에 해당하는 속성이 탭에 적용되어 탭 배경색과 폰트색이 바뀜과 동시에 탭 하단 내용도 탭 index와 일치하는 내용으로 바뀌도록 구현하였습니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### [어려웠던 점과 해결 방법]
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+각 탭 메뉴를 map함수를 사용하여 어떻게 구현해야할까 고민을 했었으나, map함수의 두번째 인자인 index를 사용하여 구현할 수 있다는 걸 알게 되어 문제없이 잘 구현하였습니다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### [실행 방법]
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+tab 메뉴를 클릭하면 해당 탭이 활성화되면서 하단 내용도 전환이 됩니다.
