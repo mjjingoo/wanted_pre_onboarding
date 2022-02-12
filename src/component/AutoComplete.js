@@ -15,8 +15,8 @@ const AutoComplete = () => {
             setContents([]);
         }
         if(inputValue !== ''){ 
-            setContents(data.filter((el) => { 
-                return el.includes(inputValue)
+            setContents(data.filter((word) => { 
+                return word.includes(inputValue)
             })
         )}
     }, [inputValue]);
@@ -34,7 +34,7 @@ const AutoComplete = () => {
     
     return (
         <div className="wrapper">
-            <h1>Tab</h1>
+            <h1>AutoComplete</h1>
             <div className="autoComplete_box">
                 <input
                     type="text"
@@ -43,7 +43,9 @@ const AutoComplete = () => {
                 />
                 <div className="clear_btn" onClick={onClear}>&times;</div>
             </div>
-            {hasText && <DropDown contents={contents} onSelect={onSelect}/>}
+            {hasText ? 
+            (<DropDown contents={contents} onSelect={onSelect}/>) 
+            : ('')}
         </div>
     )
 };
